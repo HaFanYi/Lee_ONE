@@ -32,7 +32,8 @@
     NSString *m_url = [NSString stringWithFormat:@"/movie/more/%d",0];
     NSString *url = [NSString stringWithFormat:@"%s%@",channel_url,m_url];
     [HttpsRequest requestWithURLString:url parameters:nil type:HTTPSRequestTypeGet success:^(id responseObject) {
-        NSArray *data = responseObject[@"data"];
+        NSMutableDictionary *dics = (NSMutableDictionary *)responseObject;
+        NSArray *data = dics[@"data"];
         for (NSDictionary *dic in data) {
             MovieModel *model = [[MovieModel alloc]init];
             [model setValuesForKeysWithDictionary:dic];
@@ -97,6 +98,8 @@
     }else {
           cell.dateLabel.text = [NSString stringWithFormat:@"%ld天前",res];
     }
+    NSNumber *like_count = model.like_count;
+    cell.like_count_label.text = [NSString stringWithFormat:@"%@",like_count];
     return  cell;
 }
 

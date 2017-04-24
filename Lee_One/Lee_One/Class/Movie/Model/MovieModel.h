@@ -14,6 +14,7 @@
 @property (nonatomic, strong)NSString *title;
 @property (nonatomic, strong)NSString *forward;
 @property (nonatomic, strong)NSString *img_url;
+@property (nonatomic,retain)NSNumber *like_count;
 @property (nonatomic, strong)NSString *post_date;
 @property (nonatomic, strong)NSDictionary *author;
 @property (nonatomic, strong)NSString *subtitle;

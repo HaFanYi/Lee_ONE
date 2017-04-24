@@ -82,6 +82,33 @@
             make.bottom.equalTo(self.mas_bottom).with.offset(-10);
             make.size.mas_equalTo(CGSizeMake(50, 20));
         }];
+        self.shareBtn = [[UIButton alloc]init];
+        [self addSubview:self.shareBtn];
+        [self.shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self).with.offset(-10);
+            make.right.equalTo(self).with.offset(-10);
+            make.size.mas_equalTo(CGSizeMake(20, 20));
+        }];
+        self.shareBtn.backgroundColor = [UIColor redColor];
+        self.likeBtn = [[UIButton alloc]init];
+        [self addSubview:self.likeBtn];
+        [self.likeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self).with.offset(-10);
+            make.right.equalTo(self.shareBtn.mas_left).with.offset(-20);
+            make.size.mas_equalTo(CGSizeMake(20, 20));
+        }];
+        self.likeBtn.backgroundColor = [UIColor greenColor];
+        self.like_count_label = [[UILabel alloc]init];
+        self.like_count_label.font = [UIFont systemFontOfSize:10.0];
+        self.like_count_label.textColor = textFontColor;
+        self.like_count_label.textAlignment = NSTextAlignmentRight;
+        [self addSubview:self.like_count_label];
+        [self.like_count_label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self).with.offset(-10);
+            make.right.equalTo(self.likeBtn.mas_left).with.offset(-5);
+            make.size.mas_equalTo(CGSizeMake(80, 20));
+        }];
+        self.like_count_label.backgroundColor = [UIColor grayColor];
     }
     return self;
 }

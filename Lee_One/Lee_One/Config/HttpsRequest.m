@@ -79,6 +79,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
+   
     switch (type) {
         case HTTPSRequestTypeGet:
         {
