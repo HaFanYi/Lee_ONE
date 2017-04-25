@@ -1,16 +1,15 @@
 //
-//  MovieModel.m
+//  MovieStoryModel.m
 //  Lee_One
 //
-//  Created by watchman on 2017/4/23.
+//  Created by watchman on 2017/4/25.
 //  Copyright © 2017年 Hervey. All rights reserved.
 //
 
-#import "MovieModel.h"
+#import "MovieStoryModel.h"
 
-@implementation MovieModel
-
-
+@implementation MovieStoryModel
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
 }
 @end

@@ -22,5 +22,6 @@
 @property (nonatomic, strong)NSString *content_id;
 @property (nonatomic, strong)NSArray *tag_list;
 
+@property (nonatomic, strong)NSArray *share_list;
 
 @end

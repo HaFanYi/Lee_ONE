@@ -9,7 +9,13 @@
 #import "MovieViewController.h"
 #import "MovieModel.h"
 #import "MovieTableViewCell.h"
+#import "MovieInfoViewController.h"
 @interface MovieViewController ()
+{
+   BOOL isHeader;
+   BOOL isFooter;
+   NSInteger count;
+}
 @property (nonatomic, strong)NSMutableArray *data_arr;
 @property (nonatomic, strong)UITableView *tableView;
 @end
@@ -19,18 +25,52 @@
 - (void)viewDidLoad {
     self.data_arr = [NSMutableArray arrayWithCapacity:0];
     [super viewDidLoad];
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH) style:UITableViewStyleGrouped];
+    [self setNavi];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH-40) style:UITableViewStyleGrouped];
     [self.view addSubview:self.tableView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self requestData];
+    [self requestDataWithMore:0];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        if (isHeader==1) {
+            isHeader = 0;
+            [self requestDataWithMore:0];
+        }
+    }];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            if (count == 0) {
+                [self requestDataWithMore:0];
+            }else {
+                [self requestDataWithMore:count];
+            }
+    }];
 }
 
-- (void)requestData {
-    NSString *m_url = [NSString stringWithFormat:@"/movie/more/%d",0];
+#pragma mark --navigation设置
+- (void)setNavi {
+    self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19],NSForegroundColorAttributeName:[UIColor blackColor]}];
+    self.navigationItem.title = @"一个影视";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"go"] style:UIBarButtonItemStyleDone target:self action:@selector(leftBarButtonItem:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"go"] style:UIBarButtonItemStyleDone target:self action:@selector(rightBarButtonItem:)];
+
+}
+//导航条左右两侧按钮
+- (void)leftBarButtonItem:(UIBarButtonItem *)sender {
+    NSLog(@"myself...");
+}
+- (void)rightBarButtonItem:(UIBarButtonItem *)sender {
+    NSLog(@"search...");
+}
+#pragma mark --数据请求
+- (void)requestDataWithMore:(NSInteger)num {
+    NSString *m_url = [NSString stringWithFormat:@"/movie/more/%ld?version=v4.0.1",num];
     NSString *url = [NSString stringWithFormat:@"%s%@",channel_url,m_url];
+    if (isHeader==0) {
+        [self.data_arr removeAllObjects];
+        [self.tableView reloadData];
+    }
     [HttpsRequest requestWithURLString:url parameters:nil type:HTTPSRequestTypeGet success:^(id responseObject) {
         NSMutableDictionary *dics = (NSMutableDictionary *)responseObject;
         NSArray *data = dics[@"data"];
@@ -39,12 +79,21 @@
             [model setValuesForKeysWithDictionary:dic];
             [self.data_arr addObject:model];
         }
+        MovieModel *model = self.data_arr.lastObject;
+        count = [model.id integerValue];
+        isHeader = 1;
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView.mj_header endRefreshing];
+        isHeader = 1;
         NSLog(@"%@",error);
     }];
 }
 
+#pragma mark --tableViewDelegate tableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.data_arr.count;
 }
@@ -72,8 +121,7 @@
     cell.authorlLabel.text = [NSString stringWithFormat:@"文 / %@",model.author[@"user_name"]];
     [cell.img_url_view sd_setImageWithURL:[NSURL URLWithString:model.img_url] placeholderImage:[UIImage imageNamed:@""]];
     cell.forwardLabel.text = [NSString stringWithFormat:@"%@",model.forward];
-    NSString *sub = [model.subtitle substringFromIndex:3];
-    cell.subtitleLabel.text = [NSString stringWithFormat:@"——《%@》",sub];
+    cell.subtitleLabel.text = [NSString stringWithFormat:@"——《%@》",model.subtitle];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
     NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
@@ -96,13 +144,46 @@
           res = res1/3600;
           cell.dateLabel.text = [NSString stringWithFormat:@"%ld小时前",res];
     }else {
-          cell.dateLabel.text = [NSString stringWithFormat:@"%ld天前",res];
+        if (res>3) {
+             [formatter setDateFormat:@"Y/MM/dd"];
+             cell.dateLabel.text = [NSString stringWithFormat:@"%@",[formatter stringFromDate:post]];
+        }else {
+             cell.dateLabel.text = [NSString stringWithFormat:@"%ld天前",res];
+        }
     }
     NSNumber *like_count = model.like_count;
     cell.like_count_label.text = [NSString stringWithFormat:@"%@",like_count];
+    [cell.likeBtn addTarget:self action:@selector(likeBtn:) forControlEvents:UIControlEventTouchUpInside];
+    cell.likeBtn.tag = indexPath.section;
+    [cell.shareBtn addTarget:self action:@selector(shareBtn:) forControlEvents:UIControlEventTouchUpInside];
+    cell.shareBtn.tag = indexPath.section;
     return  cell;
 }
 
+#pragma mark -- 点赞按钮和分享按钮
+- (void)likeBtn:(UIButton *)sender {
+    NSLog(@"dianzan:%ld",sender.tag);
+}
+- (void)shareBtn:(UIButton *)sender {
+    NSLog(@"fenxiang:%ld",sender.tag);
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MovieModel *model = self.data_arr[indexPath.section];
+    MovieInfoViewController *infoView = [[MovieInfoViewController alloc]init];
+    infoView.item_id = [model.item_id integerValue];
+    NSArray *tag_arr = model.tag_list;
+    if (tag_arr.count == 0) {
+        infoView.title = [NSString stringWithFormat:@"一个影视"];
+    }else {
+        for (NSDictionary *dic in tag_arr) {
+            infoView.title = [NSString stringWithFormat:@"%@",dic[@"title"]];
+        }
+    }
+    [infoView setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:infoView animated:YES];
+    [infoView setHidesBottomBarWhenPushed:NO];
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     MovieModel *model = self.data_arr[indexPath.section];
     CGFloat t_height = [MovieTableViewCell heightForCellWithText:model.title width:kScreenW-110 font:23.0];
@@ -112,7 +193,13 @@
     return t_height + a_height + f_height + s_height + 320;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 1;
+    CGFloat height = 0;
+    if (section == (self.data_arr.count-1)) {
+        height = 9;
+    }else {
+        height = 1;
+    }
+    return height;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     CGFloat height = 0;

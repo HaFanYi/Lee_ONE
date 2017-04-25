@@ -49,5 +49,7 @@
 #define BuglyKey @"900021400"
 
 #define channel_url "http://v3.wufazhuce.com:8000/api/channel"
-
+#define movie_story_url "http://v3.wufazhuce.com:8000/api/movie"
+#define movie_detail_url "http://v3.wufazhuce.com:8000/api/movie/detail"
+#define movie_comment_url "http://v3.wufazhuce.com:8000/api/comment/praiseandtime/movie"
 #endif /* LeeConfig_h */

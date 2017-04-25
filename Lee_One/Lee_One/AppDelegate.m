@@ -24,8 +24,8 @@
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setAppWindows];
-    [self setTabbarController];
     [self setRootViewController];
+    [self setTabbarController];
     [self.window makeKeyAndVisible];
     return YES;
 }

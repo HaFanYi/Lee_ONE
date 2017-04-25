@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2BC3C01EAF8E33007BFEE8 /* go.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B2BC3BF1EAF8E33007BFEE8 /* go.png */; };
+		5B2BC3C31EAF93A2007BFEE8 /* MovieInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2BC3C21EAF93A2007BFEE8 /* MovieInfoViewController.m */; };
+		5B2BC3C91EAFA106007BFEE8 /* MovieDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2BC3C81EAFA106007BFEE8 /* MovieDetailModel.m */; };
+		5B2BC3CC1EAFA409007BFEE8 /* MovieStoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2BC3CB1EAFA409007BFEE8 /* MovieStoryModel.m */; };
+		5B2BC3CF1EAFA578007BFEE8 /* MovieCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2BC3CE1EAFA578007BFEE8 /* MovieCommentModel.m */; };
 		5BFD537F1EACADD000917FA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD537E1EACADD000917FA5 /* main.m */; };
 		5BFD53821EACADD000917FA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD53811EACADD000917FA5 /* AppDelegate.m */; };
 		5BFD538A1EACADD000917FA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BFD53891EACADD000917FA5 /* Assets.xcassets */; };
@@ -132,6 +137,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B2BC3BF1EAF8E33007BFEE8 /* go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = go.png; sourceTree = "<group>"; };
+		5B2BC3C11EAF93A2007BFEE8 /* MovieInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieInfoViewController.h; sourceTree = "<group>"; };
+		5B2BC3C21EAF93A2007BFEE8 /* MovieInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieInfoViewController.m; sourceTree = "<group>"; };
+		5B2BC3C71EAFA106007BFEE8 /* MovieDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieDetailModel.h; path = ../../../../MovieDetailModel.h; sourceTree = "<group>"; };
+		5B2BC3C81EAFA106007BFEE8 /* MovieDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieDetailModel.m; path = ../../../../MovieDetailModel.m; sourceTree = "<group>"; };
+		5B2BC3CA1EAFA409007BFEE8 /* MovieStoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieStoryModel.h; sourceTree = "<group>"; };
+		5B2BC3CB1EAFA409007BFEE8 /* MovieStoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieStoryModel.m; sourceTree = "<group>"; };
+		5B2BC3CD1EAFA578007BFEE8 /* MovieCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCommentModel.h; sourceTree = "<group>"; };
+		5B2BC3CE1EAFA578007BFEE8 /* MovieCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCommentModel.m; sourceTree = "<group>"; };
 		5BFD537A1EACADD000917FA5 /* Lee_One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lee_One.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFD537E1EACADD000917FA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BFD53801EACADD000917FA5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -380,6 +394,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B2BC3BE1EAF8E23007BFEE8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				5B2BC3BF1EAF8E33007BFEE8 /* go.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		5BFD53711EACADD000917FA5 = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +425,7 @@
 		5BFD537C1EACADD000917FA5 /* Lee_One */ = {
 			isa = PBXGroup;
 			children = (
+				5B2BC3BE1EAF8E23007BFEE8 /* Resource */,
 				5BFD54FB1EACB3B100917FA5 /* Class */,
 				5BFD54F11EACB23500917FA5 /* Home */,
 				5BFD54E81EACAFDE00917FA5 /* Config */,
@@ -849,6 +872,8 @@
 			children = (
 				5BFD55031EACB45800917FA5 /* MovieViewController.h */,
 				5BFD55041EACB45800917FA5 /* MovieViewController.m */,
+				5B2BC3C11EAF93A2007BFEE8 /* MovieInfoViewController.h */,
+				5B2BC3C21EAF93A2007BFEE8 /* MovieInfoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -858,6 +883,12 @@
 			children = (
 				5BFD55061EACCD1000917FA5 /* MovieModel.h */,
 				5BFD55071EACCD1000917FA5 /* MovieModel.m */,
+				5B2BC3C71EAFA106007BFEE8 /* MovieDetailModel.h */,
+				5B2BC3C81EAFA106007BFEE8 /* MovieDetailModel.m */,
+				5B2BC3CA1EAFA409007BFEE8 /* MovieStoryModel.h */,
+				5B2BC3CB1EAFA409007BFEE8 /* MovieStoryModel.m */,
+				5B2BC3CD1EAFA578007BFEE8 /* MovieCommentModel.h */,
+				5B2BC3CE1EAFA578007BFEE8 /* MovieCommentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -981,6 +1012,7 @@
 				5BFD54C71EACAF9E00917FA5 /* MSAlertController.xib in Resources */,
 				5BFD54A31EACAF9E00917FA5 /* Info.plist in Resources */,
 				5BFD538D1EACADD000917FA5 /* LaunchScreen.storyboard in Resources */,
+				5B2BC3C01EAF8E33007BFEE8 /* go.png in Resources */,
 				5BFD54C81EACAF9E00917FA5 /* MSAlertController_ActionSheet.xib in Resources */,
 				5BFD538A1EACADD000917FA5 /* Assets.xcassets in Resources */,
 				5BFD54C01EACAF9E00917FA5 /* MJRefresh.bundle in Resources */,
@@ -1021,11 +1053,13 @@
 				5BFD549A1EACAF9E00917FA5 /* NSArray+MTLManipulationAdditions.m in Sources */,
 				5BFD54991EACAF9E00917FA5 /* MTLValueTransformer.m in Sources */,
 				5BFD548F1EACAF9E00917FA5 /* AFURLResponseSerialization.m in Sources */,
+				5B2BC3CF1EAFA578007BFEE8 /* MovieCommentModel.m in Sources */,
 				5BFD54C41EACAF9E00917FA5 /* UIScrollView+MJRefresh.m in Sources */,
 				5BFD54B71EACAF9E00917FA5 /* MJRefreshAutoGifFooter.m in Sources */,
 				5BFD54BF1EACAF9E00917FA5 /* MJRefreshStateHeader.m in Sources */,
 				5BFD54B21EACAF9E00917FA5 /* MJRefreshAutoFooter.m in Sources */,
 				5BFD54E21EACAF9E00917FA5 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				5B2BC3CC1EAFA409007BFEE8 /* MovieStoryModel.m in Sources */,
 				5BFD54AC1EACAF9E00917FA5 /* View+MASAdditions.m in Sources */,
 				5BFD54D71EACAF9E00917FA5 /* UIButton+WebCache.m in Sources */,
 				5BFD53B51EACAEF400917FA5 /* DIYTool.m in Sources */,
@@ -1035,6 +1069,7 @@
 				5BFD54AA1EACAF9E00917FA5 /* NSArray+MASAdditions.m in Sources */,
 				5BFD549C1EACAF9E00917FA5 /* NSDictionary+MTLManipulationAdditions.m in Sources */,
 				5BFD54AD1EACAF9E00917FA5 /* ViewController+MASAdditions.m in Sources */,
+				5B2BC3C31EAF93A2007BFEE8 /* MovieInfoViewController.m in Sources */,
 				5BFD54E01EACAF9E00917FA5 /* AFImageDownloader.m in Sources */,
 				5BFD54A11EACAF9E00917FA5 /* NSValueTransformer+MTLPredefinedTransformerAdditions.m in Sources */,
 				5BFD54C51EACAF9E00917FA5 /* UIView+MJExtension.m in Sources */,
@@ -1087,6 +1122,7 @@
 				5BFD54C21EACAF9E00917FA5 /* NSBundle+MJRefresh.m in Sources */,
 				5BFD54931EACAF9E00917FA5 /* EXTScope.m in Sources */,
 				5BFD548C1EACAF9E00917FA5 /* AFNetworkReachabilityManager.m in Sources */,
+				5B2BC3C91EAFA106007BFEE8 /* MovieDetailModel.m in Sources */,
 				5BFD55051EACB45800917FA5 /* MovieViewController.m in Sources */,
 				5BFD54DA1EACAF9E00917FA5 /* UIImage+WebP.m in Sources */,
 				5BFD54DF1EACAF9E00917FA5 /* AFAutoPurgingImageCache.m in Sources */,

@@ -80,7 +80,7 @@
         [self.dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).with.offset(45);
             make.bottom.equalTo(self.mas_bottom).with.offset(-10);
-            make.size.mas_equalTo(CGSizeMake(50, 20));
+            make.size.mas_equalTo(CGSizeMake(80, 20));
         }];
         self.shareBtn = [[UIButton alloc]init];
         [self addSubview:self.shareBtn];
@@ -108,7 +108,6 @@
             make.right.equalTo(self.likeBtn.mas_left).with.offset(-5);
             make.size.mas_equalTo(CGSizeMake(80, 20));
         }];
-        self.like_count_label.backgroundColor = [UIColor grayColor];
     }
     return self;
 }
