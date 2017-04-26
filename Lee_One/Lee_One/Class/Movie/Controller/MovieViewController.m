@@ -177,7 +177,7 @@
         infoView.title = [NSString stringWithFormat:@"一个影视"];
     }else {
         for (NSDictionary *dic in tag_arr) {
-            infoView.title = [NSString stringWithFormat:@"%@",dic[@"title"]];
+            infoView.nav_title = [NSString stringWithFormat:@"%@",dic[@"title"]];
         }
     }
     [infoView setHidesBottomBarWhenPushed:YES];

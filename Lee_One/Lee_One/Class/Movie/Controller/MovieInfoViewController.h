@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MovieInfoViewController : UIViewController
+@interface MovieInfoViewController : UIViewController<UIScrollViewDelegate>
 @property (nonatomic)NSInteger item_id;
-@property (nonatomic, strong)NSString *title;
+@property (nonatomic, strong)NSString *nav_title;
 
 @end

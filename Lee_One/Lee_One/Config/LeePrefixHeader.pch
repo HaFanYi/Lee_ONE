@@ -32,4 +32,5 @@
 #import <QuartzCore/QuartzCore.h>
 #import <Accelerate/Accelerate.h>
 #import "Mantle.h"
+#import "LeeScrollView.h"
 #endif /* LeePrefixHeader_pch */

@@ -12,6 +12,9 @@
 		5B2BC3C91EAFA106007BFEE8 /* MovieDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2BC3C81EAFA106007BFEE8 /* MovieDetailModel.m */; };
 		5B2BC3CC1EAFA409007BFEE8 /* MovieStoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2BC3CB1EAFA409007BFEE8 /* MovieStoryModel.m */; };
 		5B2BC3CF1EAFA578007BFEE8 /* MovieCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B2BC3CE1EAFA578007BFEE8 /* MovieCommentModel.m */; };
+		5B59FEE41EB0EEE000E5328B /* LeeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B59FEE31EB0EEE000E5328B /* LeeScrollView.m */; };
+		5B59FEE71EB0EFB100E5328B /* MovieDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B59FEE61EB0EFB100E5328B /* MovieDetailHeaderView.m */; };
+		5B59FEE91EB10AF200E5328B /* LeePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B59FEE81EB10AF200E5328B /* LeePlaceholder.png */; };
 		5BFD537F1EACADD000917FA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD537E1EACADD000917FA5 /* main.m */; };
 		5BFD53821EACADD000917FA5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD53811EACADD000917FA5 /* AppDelegate.m */; };
 		5BFD538A1EACADD000917FA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BFD53891EACADD000917FA5 /* Assets.xcassets */; };
@@ -146,6 +149,11 @@
 		5B2BC3CB1EAFA409007BFEE8 /* MovieStoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieStoryModel.m; sourceTree = "<group>"; };
 		5B2BC3CD1EAFA578007BFEE8 /* MovieCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCommentModel.h; sourceTree = "<group>"; };
 		5B2BC3CE1EAFA578007BFEE8 /* MovieCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCommentModel.m; sourceTree = "<group>"; };
+		5B59FEE21EB0EEE000E5328B /* LeeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeeScrollView.h; sourceTree = "<group>"; };
+		5B59FEE31EB0EEE000E5328B /* LeeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeeScrollView.m; sourceTree = "<group>"; };
+		5B59FEE51EB0EFB100E5328B /* MovieDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailHeaderView.h; sourceTree = "<group>"; };
+		5B59FEE61EB0EFB100E5328B /* MovieDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailHeaderView.m; sourceTree = "<group>"; };
+		5B59FEE81EB10AF200E5328B /* LeePlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeePlaceholder.png; sourceTree = "<group>"; };
 		5BFD537A1EACADD000917FA5 /* Lee_One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lee_One.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFD537E1EACADD000917FA5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5BFD53801EACADD000917FA5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -398,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				5B2BC3BF1EAF8E33007BFEE8 /* go.png */,
+				5B59FEE81EB10AF200E5328B /* LeePlaceholder.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -476,6 +485,8 @@
 		5BFD53B11EACAEB400917FA5 /* DIYTool */ = {
 			isa = PBXGroup;
 			children = (
+				5B59FEE21EB0EEE000E5328B /* LeeScrollView.h */,
+				5B59FEE31EB0EEE000E5328B /* LeeScrollView.m */,
 				5BFD54F81EACB36600917FA5 /* CWStatusBarNotification.h */,
 				5BFD54F91EACB36600917FA5 /* CWStatusBarNotification.m */,
 				5BFD53B31EACAEF400917FA5 /* DIYTool.h */,
@@ -898,6 +909,8 @@
 			children = (
 				5BFD55091EACD00500917FA5 /* MovieTableViewCell.h */,
 				5BFD550A1EACD00500917FA5 /* MovieTableViewCell.m */,
+				5B59FEE51EB0EFB100E5328B /* MovieDetailHeaderView.h */,
+				5B59FEE61EB0EFB100E5328B /* MovieDetailHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1015,6 +1028,7 @@
 				5B2BC3C01EAF8E33007BFEE8 /* go.png in Resources */,
 				5BFD54C81EACAF9E00917FA5 /* MSAlertController_ActionSheet.xib in Resources */,
 				5BFD538A1EACADD000917FA5 /* Assets.xcassets in Resources */,
+				5B59FEE91EB10AF200E5328B /* LeePlaceholder.png in Resources */,
 				5BFD54C01EACAF9E00917FA5 /* MJRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1114,6 +1128,7 @@
 				5BFD54CD1EACAF9E00917FA5 /* NSData+ImageContentType.m in Sources */,
 				5BFD550B1EACD00500917FA5 /* MovieTableViewCell.m in Sources */,
 				5BFD54D21EACAF9E00917FA5 /* SDWebImageDecoder.m in Sources */,
+				5B59FEE41EB0EEE000E5328B /* LeeScrollView.m in Sources */,
 				5BFD54E31EACAF9E00917FA5 /* UIButton+AFNetworking.m in Sources */,
 				5BFD54C11EACAF9E00917FA5 /* MJRefreshConst.m in Sources */,
 				5BFD54A91EACAF9E00917FA5 /* MASViewConstraint.m in Sources */,
@@ -1128,6 +1143,7 @@
 				5BFD54DF1EACAF9E00917FA5 /* AFAutoPurgingImageCache.m in Sources */,
 				5BFD54971EACAF9E00917FA5 /* MTLReflection.m in Sources */,
 				5BFD54E51EACAF9E00917FA5 /* UIProgressView+AFNetworking.m in Sources */,
+				5B59FEE71EB0EFB100E5328B /* MovieDetailHeaderView.m in Sources */,
 				5BFD537F1EACADD000917FA5 /* main.m in Sources */,
 				5BFD54DC1EACAF9E00917FA5 /* UIImageView+WebCache.m in Sources */,
 				5BFD548E1EACAF9E00917FA5 /* AFURLRequestSerialization.m in Sources */,

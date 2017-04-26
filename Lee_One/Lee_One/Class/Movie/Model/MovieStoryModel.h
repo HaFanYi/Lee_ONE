@@ -15,5 +15,8 @@
 @property (nonatomic, strong)NSString *summary;
 @property (nonatomic, strong)NSString *charge_edt;
 @property (nonatomic, strong)NSString *editor_email;
+@property (nonatomic, strong)NSString *copyright;
+
+@property (nonatomic, strong)NSDictionary *user;
 
 @end

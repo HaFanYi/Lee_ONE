@@ -11,7 +11,6 @@
 @interface MovieCommentModel : NSObject
 @property (nonatomic, strong)NSString *id;
 @property (nonatomic, strong)NSString *content;
-@property (nonatomic, strong)NSNumber *praisenum;
 @property (nonatomic, strong)NSString *input_date;
 @property (nonatomic, strong)NSDictionary *user;
 @property (nonatomic, strong)NSString *quote;

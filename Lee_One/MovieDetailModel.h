@@ -15,7 +15,7 @@
 @property (nonatomic, strong)NSString *info;
 @property (nonatomic, strong)NSString *officialstory;
 @property (nonatomic, strong)NSString *poster;
-@property (nonatomic, strong)NSArray *photo;
+@property (nonatomic, strong)NSMutableArray *photo;
 @property (nonatomic, strong)NSDictionary *share_list;
 @property (nonatomic, strong)NSNumber *commentnum;
 
